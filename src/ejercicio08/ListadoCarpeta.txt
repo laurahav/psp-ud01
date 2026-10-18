@@ -1,0 +1,20 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: 6E0B-ED0C
+
+ Directorio de C:\Users\laura\Documents\Repos\psp-ud01
+
+18/10/2026  11:01    <DIR>          .
+18/10/2026  10:55    <DIR>          ..
+18/10/2026  10:55               415 .gitignore
+18/10/2026  11:59    <DIR>          .idea
+18/10/2026  10:55                 0 Entrada.txt
+18/10/2026  10:55                46 Error.log
+18/10/2026  10:55               100 errores.txt
+18/10/2026  11:02    <DIR>          out
+18/10/2026  10:56               433 psp-ud01.iml
+18/10/2026  10:55                26 README.md
+18/10/2026  10:55               542 Salida1.txt
+18/10/2026  10:55                12 Salida2.txt
+18/10/2026  10:55    <DIR>          src
+               8 archivos          1.574 bytes
+               5 dirs  346.547.642.368 bytes libres

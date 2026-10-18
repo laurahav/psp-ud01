@@ -43,8 +43,6 @@ public class Ejercicio5 {
             System.out.println("Ha ocurrido un error: " + e.getMessage());
         }
 
-
-
         sc.close();
     }
 }
