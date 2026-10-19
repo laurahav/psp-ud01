@@ -1,6 +1,7 @@
 package ejercicio06;
 
-/*Partiendo del ejercicio anterior, realiza los cambios necesarios para que la salida del proceso
+/*
+Partiendo del ejercicio anterior, realiza los cambios necesarios para que la salida del proceso
 Repetidor (capturada mediante getInputStream()) se almacene en un fichero de texto llamado
 “salida.txt”, en lugar de mostrarse por pantalla.
 */
@@ -16,28 +17,23 @@ public class Ejercicio6 {
 
         System.out.println("Introduce una palabra: ");
         String palabra = sc.nextLine();
-        String[] comando = {"java", "-cp", classpath, "ejercicio06.Repetidor", palabra};
+        String[] comando = {"java", "-cp", classpath, "ejercicio05.Repetidor", palabra};
 
         ProcessBuilder pb = new ProcessBuilder(comando);
 
         try{
             Process proceso = pb.start();
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(proceso.getInputStream(), StandardCharsets.UTF_8))){
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(proceso.getInputStream(), StandardCharsets.UTF_8));
+                PrintWriter pw = new PrintWriter(new FileWriter("src/ejercicio06/salida.txt", StandardCharsets.UTF_8))){
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    try (PrintWriter pw = new PrintWriter(new FileWriter("src/ejercicio06/palabra.txt"))){
-                        pw.println(linea);
-
-                    } catch (IOException e) {
-                        System.out.println("Ha ocurrido un error: " + e.getMessage());
-                    }
+                    pw.println(linea);
                 }
-            } catch (IOException e) {
-                System.out.println("Ha ocurrido un error: " + e.getMessage());
             }
             int exitCode = proceso.waitFor();
             System.out.println("Código de salida: " + exitCode);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             System.out.println("Ha ocurrido un error y el programa se ha interrumpido: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ha ocurrido un error: " + e.getMessage());

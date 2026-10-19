@@ -1,5 +1,7 @@
 package ejercicio07;
 
+import java.util.Locale;
+
 public class Lector {
     static void main(String[] args) {
         if(args.length == 0) {
@@ -8,12 +10,12 @@ public class Lector {
         }
 
         String palabra = args[0];
-        char[] letras = palabra.toCharArray();
+        char[] letras = palabra.toLowerCase().toCharArray();
         int vocales = 0, consonantes = 0;
         for (char letra : letras) {
             if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
                 vocales++;
-            } else {
+            } else if(Character.isLetter(letra)){
                 consonantes++;
             }
         }

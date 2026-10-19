@@ -37,6 +37,7 @@ public class Ejercicio7 {
         String[] comando = {"java", "-cp", classpath, "ejercicio07.Lector", palabra};
 
         ProcessBuilder pb = new ProcessBuilder(comando);
+        System.out.println("----SALIDA DEL PROGRAMA----");
         try {
             Process proceso = pb.start();
             try (BufferedReader br = new BufferedReader(new InputStreamReader(proceso.getInputStream(), StandardCharsets.UTF_8))) {
@@ -44,12 +45,11 @@ public class Ejercicio7 {
                 while((linea = br.readLine()) != null) {
                     System.out.println(linea);
                 }
-            } catch (IOException e) {
-                System.out.println("Ha ocurrido un error: " + e.getMessage());
             }
             int exitCode = proceso.waitFor();
             System.out.printf("Código de salida: %d", exitCode);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             System.out.println("Ha ocurrido un error y el programa se ha interrumpido: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ha ocurrido un error: " + e.getMessage());

@@ -14,7 +14,6 @@ redirectOutput() de ProcessBuilder, escribiendo el listado en un fichero llamado
 */
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Ejercicio8 {
@@ -42,6 +41,7 @@ public class Ejercicio8 {
             System.out.println("Código de salida del primer proceso: " + exitCodeVentana);
             System.out.println("Código de salida del segundo proceso: " + exitCodeArchivo);
         } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
             System.out.println("Ha ocurrido un problema y el programa se ha detenido: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ha ocurrido un error: " + e.getMessage());
